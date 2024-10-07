@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('product_url');
             $table->enum('size_availability', ['yes', 'no'])->default('yes');
             $table->integer('category_id');
-            $table->id();
-            $table->id();
             $table->timestamps();
         });
     }
