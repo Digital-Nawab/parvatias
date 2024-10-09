@@ -93,17 +93,24 @@
                                                     </th>
                                                     <td>{{ $key + 1 }}</td>
                                                     <td class="email">
-                                                        <img src="{{ asset($row->product_image) }}" class="img-circle"
-                                                        style="height: 50px; width: 50px;border-radius:50%;object-fit: cover;object-position: 100%;"
-                                                        alt="">
-                                                         {{ $row->product_name }} 
-                                                        <small>SKU: {{ $row->product_sku }}</small>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0 me-2">
+                                                                <img src="{{ asset($row->product_image) }}" alt="" class="avatar-sm p-2">
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h5 class="fs-14 my-1 fw-medium"><a href="#" class="text-reset">{{ $row->product_name }}</a></h5>
+                                                                <span class="text-muted"><i class="ri-copper-diamond-fill"></i>{{ $row->product_sku }}</span>
+                                                            </div>
+                                                        </div>
                                                     </td>
-                                                    <td class="date">{{ $row->category_id }}</td>
-                                                    <td class="date">₹{{ $row->product_price }}</td>
-                                                    <td class="date">{{ $row->stock_quantity }}</td>
+                                                    <td class="date"><i class="ri-price-tag-3-fill"></i> {{ $row->category_id }}</td>
+                                                    <td class="date">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM13.5003 8C13.8278 8.43606 14.0625 8.94584 14.175 9.5H16V11H14.175C13.8275 12.7117 12.3142 14 10.5 14H10.3107L14.0303 17.7197L12.9697 18.7803L8 13.8107V12.5H10.5C11.4797 12.5 12.3131 11.8739 12.622 11H8V9.5H12.622C12.3131 8.62611 11.4797 8 10.5 8H8V6.5H16V8H13.5003Z"></path></svg>
+                                                        {{ $row->product_price }}</td>
+                                                    <td class="date"><i class="ri-bar-chart-fill"></i> {{ $row->stock_quantity }}</td>
                             
                                                     <td class="status">
+                                                        <i class="ri-funds-fill"></i>
                                                         <span
                                                             class="badge badge-soft-{{ $row->is_sold== '1' ? "success" : 'danger' }} text-uppercase">{{ $row->is_sold== '1' ? "Sold In" : 'Sold Out' }}</span>
                                                     </td>
