@@ -53,7 +53,7 @@ class CategoryController extends Controller
                 'is_front.in' => 'The is_front value must be either "no" or "yes".',
                 'menu_type.in' => 'The menu_type must be "none", "single", or "multi".',
             ];
-            $validator = Validator::make($request->all(), $rules, $customMessages);
+            $validator = Validator::make($data, $rules, $customMessages);
 
             if($validator->fails()){
                 return redirect()->back()->withErrors($validator)->withInput();
